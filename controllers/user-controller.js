@@ -3,6 +3,7 @@ const { User } = require('../models');
 const userController = {
 
     // get all users
+
     getAllUser(req, res) {
         User.find({})
             .then(dbUserData => res.json(dbUserData))
@@ -13,6 +14,7 @@ const userController = {
     },
 
  // get one user by id
+
     getUserByID({ params }, res) {
         User.findOne({ _id: params.id })
         .populate('thoughts')
@@ -33,6 +35,7 @@ const userController = {
     },
     
 
+//create user
 
     createUser({ body }, res) {
         User.create(body)
@@ -41,6 +44,7 @@ const userController = {
     },
 
     // update user by id
+
     updateUser({ params, body }, res) {
         User.findOneAndUpdate({ _id: params.id }, body, { new: true, runValidators: true })
             .then(dbUserData => {
@@ -55,6 +59,7 @@ const userController = {
 
 
      // delete user
+
     deleteUser({ params }, res) {
         User.findOneAndDelete({ _id: params.id })
             .then(dbUserData => {
@@ -67,6 +72,7 @@ const userController = {
             .catch(err => res.status(400).json(err));
     },
     //add friend
+
     addFriend({ params }, res) {
         User.findByIdAndUpdate(
             { _id: params.id },
@@ -82,6 +88,9 @@ const userController = {
             })
             .catch(err => res.status(400).json(err));
     },
+
+    //remove friend
+    
     removeFriend({ params }, res) {
         User.findOneAndUpdate(
             { _id: params.id },
