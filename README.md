@@ -57,7 +57,6 @@ This project is school assignment and contributors were not allowed. The project
 https://drive.google.com/file/d/1Sfdx43QsrLRT7BBQUWmSTz3TnQZ2U7EX/view
 
 ## GitHub
-Tasevski87
 
 https://github.com/Tasevski87
 
