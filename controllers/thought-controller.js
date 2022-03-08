@@ -110,15 +110,15 @@ const thoughtController = {
 
     //removeReaction
     
-    removeReaction({ params }, res) {
+    removeReaction( req, res) {
         Thought.findOneAndUpdate(
-            { _id: params.thoughtId },
-            { $pull: { reactions: params.reactionId }  },
-            { new: true }
+            { _id: req.params.thoughtId },
+            { $pull: { reactions: { reactionId: req.params.reactionId } } },
+            { runValidators: true,new: true }
         )
         .then(dbUserData => res.json(dbUserData))
         .catch(err => res.json(err));
-    },
+    }
 };
 
 
